@@ -5,6 +5,7 @@ Base class where other class inherit from
 
 import uuid
 import datetime
+from models import storage
 
 class BaseModel:
     """
@@ -35,6 +36,8 @@ class BaseModel:
         not yet done
         """
         self.updated_at = datetime.datetime.now()
+        storage.new(self)
+        storage.save()
 
     def to_dict(self):
         """return dictionary presentation of class
