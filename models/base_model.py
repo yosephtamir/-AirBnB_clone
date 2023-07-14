@@ -5,8 +5,7 @@ Base class where other class inherit from
 
 from uuid import uuid4
 from datetime import datetime
-from models.engine import storage
-
+import models
 class BaseModel:
     """
     Base class for all classes
@@ -28,7 +27,7 @@ class BaseModel:
                 else:
                     self.__dict__[key] = val
         else:
-            storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """return string presentation of class"""
@@ -39,7 +38,7 @@ class BaseModel:
         not yet done
         """
         self.updated_at = datetime.today()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """return dictionary presentation of class
