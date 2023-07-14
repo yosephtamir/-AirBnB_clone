@@ -4,10 +4,12 @@ This module acts as a command interpreter
 """
 import cmd
 
+
 class HBNBCommand(cmd.Cmd):
     """
     This is the command interpreter class
     """
+
     prompt = '(hbnb)'
 
     def do_EOF(self, line):
