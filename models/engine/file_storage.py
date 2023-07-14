@@ -45,6 +45,6 @@ class FileStorage:
                 for obj in object_content.values():
                     cls_nm = obj["__class__"]
                     del obj["__class__"]
-                    self.new(eval(cls_nm(**obj))
+                    self.new(eval(cls_nm(**obj)))
         except FileNotFoundError:
             return
