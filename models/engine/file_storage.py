@@ -40,11 +40,11 @@ class FileStorage:
         This method deserializes the JSON file to __objects
         """
         try:
-            with open(FileStorage.__file_path) as f:
-                object_content = json.load(f)
-                for obj in object_content.values():
-                    cls_nm = obj["__class__"]
+            with open(FileStorage.__file_path) as file:
+                dict_obj = json.load(file)
+                for obj in dict_obj.values():
+                    cls_name = obj["__class__"]
                     del obj["__class__"]
-                    self.new(eval(cls_nm(**obj)))
+                    self.new(eval(cls_name)(**obj))
         except FileNotFoundError:
             return
