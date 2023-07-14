@@ -29,13 +29,9 @@ class FileStorage:
         """
         This method serializes __objects to the JSON file (path: __file_path)
         """
-        objectCopy  = FileStorage.__objects
-        new_dict = {}
-        for obj in objectCopy.keys():
-            new_dict = {obj: objectCopy[obj].to_dict()}
-  
         with open(FileStorage.__file_path, "w") as file:
-            json.dump(new_dict, file)
+            new_dict = {key: obj.to_dict() for key, obj in FileStorage.__objects.items()}
+            json.dump(new_dict, fILE)
             
         # objectCopy  = FileStorage.__objects
         # for obj in objectCopy.keys():
