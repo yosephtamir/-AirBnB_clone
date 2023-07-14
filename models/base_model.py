@@ -3,7 +3,7 @@
 Base class where other class inherit from
 """
 
-import uuid
+from uuid import uuid4
 from datetime import datetime
 from models import storage
 
