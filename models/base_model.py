@@ -6,6 +6,8 @@ Base class where other class inherit from
 from uuid import uuid4
 from datetime import datetime
 import models
+
+
 class BaseModel:
     """
     Base class for all classes
@@ -44,14 +46,8 @@ class BaseModel:
         """return dictionary presentation of class
         created_at and updated_at: all are updated
         """
-        rdict = self.__dict__.copy()
-        rdict["created_at"] = self.created_at.isoformat()
-        rdict["updated_at"] = self.updated_at.isoformat()
-        rdict["__class__"] = self.__class__.__name__
-        return rdict
-        # new_dict = self.__dict__
-        # new_dict["__class__"] = self.__class__.__name__
-        # dateformat = "%Y-%m-%dT %H:%M:%S.%f"
-        # new_dict["created_at"] = self.created_at.strftime(dateformat)
-        # new_dict["updated_at"] = self.updated_at.strftime(dateformat)
-        # return new_dict
+        new_dict = self.__dict__.copy()
+        new_dict["created_at"] = self.created_at.isoformat()
+        new_dict["updated_at"] = self.updated_at.isoformat()
+        new_dict["__class__"] = self.__class__.__name__
+        return new_dict
