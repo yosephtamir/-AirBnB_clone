@@ -17,6 +17,7 @@ class HBNBCommand(cmd.Cmd):
         Used to exit out of the console
         """
         return True
+
     def emptyline(self):
         """
         Empty line should not do anything
