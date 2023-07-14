@@ -33,7 +33,7 @@ class FileStorage:
         new_dict = {}
         for obj in objectCopy.keys():
             new_dict = {obj: objectCopy[obj].to_dict()}
-        with open(FileStorage.__file_path, "w") as file
+        with open(FileStorage.__file_path, "w") as file:
             json.dump(new_dict, file)
         
     def reload(self):
