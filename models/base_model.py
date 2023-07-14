@@ -31,7 +31,7 @@ class BaseModel:
                 else:
                     self.__dict__[k] = v
         else:
-            models.storage.new(self)
+            storage.new(self)
 
     # def __init__(self, *args, **kwargs):
     #     if not kwargs:
