@@ -34,9 +34,6 @@ class FileStorage:
         obj_dict = {obj: Ocopy[obj].to_dict() for obj in Ocopy.keys()}
         with open(FileStorage.__file_path, "w") as f:
             json.dump(obj_dict, f)
-        # with open(FileStorage.__file_path, "w", encoding='utf-8') as file:
-        #     new_dict = {key: obj.to_dict() for key, obj in FileStorage.__objects.items()}
-        #     json.dump(new_dict, file)
         
     def reload(self):
         """
@@ -44,10 +41,10 @@ class FileStorage:
         """
         try:
             with open(FileStorage.__file_path) as f:
-                objdict = json.load(f)
-                for o in objdict.values():
-                    cls_name = o["__class__"]
-                    del o["__class__"]
-                    self.new(eval(cls_name)(**o))
+                object_content = json.load(f)
+                for obj in object_content.values():
+                    cls = obj["__class__"]
+                    del obj["__class__"]
+                    self.new(eval(cls(**obj))
         except FileNotFoundError:
             return
