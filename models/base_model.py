@@ -58,19 +58,14 @@ class BaseModel:
         storage.save()
 
     def to_dict(self):
-         def to_dict(self):
-        """Return the dictionary of the BaseModel instance.
-        Includes the key/value pair __class__ representing
-        the class name of the object.
+        """return dictionary presentation of class
+        created_at and updated_at: all are updated
         """
         rdict = self.__dict__.copy()
         rdict["created_at"] = self.created_at.isoformat()
         rdict["updated_at"] = self.updated_at.isoformat()
         rdict["__class__"] = self.__class__.__name__
         return rdict
-        # """return dictionary presentation of class
-        # created_at and updated_at: all are updated
-        # """
         # new_dict = self.__dict__
         # new_dict["__class__"] = self.__class__.__name__
         # dateformat = "%Y-%m-%dT %H:%M:%S.%f"
