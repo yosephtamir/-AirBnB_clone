@@ -16,17 +16,17 @@ class BaseModel:
     """
     def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
         if not kwargs:
             storage.new(self)
         else:
             for key, values in kwargs.items():
                 if key == 'created_at' or key == 'updated_at':
                     dateformat = "%Y-%m-%dT %H:%M:%S.%f"
-                    self.__dict__[key] = datetime.strptime(values, dateformat)
-                else:
-                    self.__dict__[key] = values
+                    values = datetime.strptime(kwargs[key], dateformat)
+                if key ! = '__class__':
+                    setattr(self, key, values)
 
     def __str__(self):
         """return string presentation of class"""
@@ -36,7 +36,7 @@ class BaseModel:
         """save class instances
         not yet done
         """
-        self.updated_at = datetime.utcnow()
+        self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
