@@ -31,7 +31,7 @@ class FileStorage:
         """
         with open(FileStorage.__file_path, "w") as file:
             new_dict = {key: obj.to_dict() for key, obj in FileStorage.__objects.items()}
-            json.dump(new_dict, fILE)
+            json.dump(new_dict, file)
             
         # objectCopy  = FileStorage.__objects
         # for obj in objectCopy.keys():
