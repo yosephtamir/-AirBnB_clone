@@ -4,7 +4,6 @@ FileStorage module:
 """
 import json
 import models
-
 class FileStorage:
     """
      a class FileStorage that serializes instances to a JSON file and
@@ -24,15 +23,19 @@ class FileStorage:
         This method sets in __objects the obj with key <obj class name>.id
         """
         if obj is not None:
-            self.__objects['obj.__class__.__name__ + "." + obj.id'] = obj
+            i = f"{obj.__class__.__name__}.{obj.id}"
+            self.__objects[i] = obj
 
     def save(self):
         """
         This method serializes __objects to the JSON file (path: __file_path)
         """
-        json_objects = {}
+        new = {}
+        for i in self.__objects:
+            new[i] = self.__objects[i].to_dict()
+
         with open(self.__file_path, 'w', encoding='utf-8') as file:
-            json.dump(json_objects, file)
+            json.dump(new, file)
 
     def reload(self):
         """
@@ -40,6 +43,6 @@ class FileStorage:
         """
         try:
             with open(self.__file_path, 'r', encoding='utf-8') as file:
-                js_py = json.load(file)
+                self.__objects = json.load(file)
         except Exception:
             return
