@@ -45,7 +45,7 @@ class BaseModel:
         """return dictionary presentation of class
         created_at and updated_at: all are updated
         """
-        rdict = self.__dict__
+        rdict = self.__dict__.copy()
         rdict["created_at"] = self.created_at.isoformat()
         rdict["updated_at"] = self.updated_at.isoformat()
         rdict["__class__"] = self.__class__.__name__
