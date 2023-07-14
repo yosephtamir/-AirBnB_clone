@@ -41,9 +41,9 @@ class FileStorage:
         """
         This method deserializes the JSON file to __objects
         """
-        try:
-            with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
-                content = json.load(file)
-                print(content)
-        except FileNotFoundError:
-            return
+        # try:
+        #     with open(FileStorage.__file_path, 'r', encoding='utf-8') as file:
+        #         content = json.load(file)
+        #         print(content)
+        # except FileNotFoundError:
+        #     return
