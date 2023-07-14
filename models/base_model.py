@@ -5,7 +5,7 @@ Base class where other class inherit from
 
 from uuid import uuid4
 from datetime import datetime
-from models import storage
+from models.engine import storage
 
 class BaseModel:
     """
