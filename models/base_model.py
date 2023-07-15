@@ -18,10 +18,11 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Initialize a new BaseModel.
         """
-        dateformat = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
+
+        dateformat = "%Y-%m-%dT%H:%M:%S.%f"
         if len(kwargs) != 0:
             for key, val in kwargs.items():
                 if key == "created_at" or key == "updated_at":
