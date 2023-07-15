@@ -10,13 +10,14 @@ import models
 
 class BaseModel:
     """
-    Base class for all classes
+    Base class for all iclasses
     define arguments using:
-        args: not supported by now
-        kwargs: dictionary that contains info
+    args: not supported by now
+    kwargs: dictionary that contains info
     """
     def __init__(self, *args, **kwargs):
-        """Initialize a new BaseModel.
+        """
+        Initialize a new BaseModel.
         """
         self.id = str(uuid4())
         self.created_at = datetime.today()
@@ -37,14 +38,16 @@ class BaseModel:
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """save class instances
+        """
+        save class instances
         not yet done
         """
         self.updated_at = datetime.today()
         models.storage.save()
 
     def to_dict(self):
-        """return dictionary presentation of class
+        """
+        return dictionary presentation of class
         created_at and updated_at: all are updated
         """
         new_dict = self.__dict__.copy()
