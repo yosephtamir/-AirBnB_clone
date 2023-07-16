@@ -9,10 +9,9 @@
     • unittests to validate all our classes and storage engine
 
 ## Command Interpreter
-This makes us able to manage this project
+### This makes us able to manage this project:
     • Create a new object (ex: a new User or a new Place)
     • Retrieve an object from a file, a database etc…
     • Do operations on objects (count, compute stats, etc…)
     • Update attributes of an object
     • Destroy an object
-
