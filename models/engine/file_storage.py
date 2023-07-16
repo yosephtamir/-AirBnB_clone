@@ -5,6 +5,7 @@ FileStorage module:
 import json
 from models.base_model import BaseModel
 
+
 class FileStorage:
     """
      a class FileStorage that serializes instances to a JSON file and
@@ -24,7 +25,8 @@ class FileStorage:
         This method sets in __objects the obj with key <obj class name>.id
         """
         if obj is not None:
-            FileStorage.__objects[obj.__class__.__name__ + "." + str(obj.id)] = obj
+            FileStorage.__objects[obj.__class__.__name__ + "." +
+                                  str(obj.id)] = obj
 
     def save(self):
         """
@@ -34,7 +36,7 @@ class FileStorage:
         obj_dict = {obj: Ocopy[obj].to_dict() for obj in Ocopy.keys()}
         with open(FileStorage.__file_path, "w") as f:
             json.dump(obj_dict, f)
-        
+
     def reload(self):
         """
         This method deserializes the JSON file to __objects
