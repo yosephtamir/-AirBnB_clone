@@ -2,7 +2,7 @@
 """
 This Module is used to show users
 """
-from base_model import BaseModel
+from models.base_model import BaseModel
 
 
 class User(BaseModel):
