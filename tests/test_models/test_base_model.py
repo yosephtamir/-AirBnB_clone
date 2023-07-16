@@ -4,8 +4,9 @@ it is based on BaseModel class"""
 
 
 import unittest
-from models.base_model import  BaseModel
+from models.base_model import BaseModel
 from datetime import datetime
+
 
 class TestBaseModel(unittest.TestCase):
     def test_output_of_class_attributes(self):
@@ -19,6 +20,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(isinstance(obj.created_at, datetime), True)
         self.assertEqual(isinstance(obj.updated_at, datetime), True)
         self.assertEqual(type(obj_dict), dict)
+
 
 if __name__ == "__main__":
     unittest.main()
