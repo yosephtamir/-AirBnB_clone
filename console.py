@@ -11,7 +11,7 @@ class HBNBCommand(cmd.Cmd):
     """
     This is the command interpreter class
     """
-    
+
     my_classes = {"BaseModel": BaseModel}
     prompt = '(hbnb)'
 
@@ -138,7 +138,7 @@ class HBNBCommand(cmd.Cmd):
             return
         else:
             cls_obj = storage.all()
-            key = token[0] + "." + token[1]                     
+            key = token[0] + "." + token[1]
             if key not in cls_obj:
                 print("** no instance found **")
                 return
