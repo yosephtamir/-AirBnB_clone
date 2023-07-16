@@ -4,6 +4,7 @@ This Module is used to show users
 """
 from base_model import BaseModel
 
+
 class User(BaseModel):
     """
     A user identfier class
