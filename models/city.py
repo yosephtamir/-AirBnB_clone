@@ -2,7 +2,7 @@
 """
 City module
 """
-from models import BaseModel
+from base_model import BaseModel
 
 
 class City(BaseModel):
