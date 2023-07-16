@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """
-This module is used to initialize the model
+init of the model
 """
-
-
-from models.engine import file_storage
-storage = file_storage.FileStorage()
+from models.engine.file_storage import FileStorage
+storage = FileStorage()
 storage.reload()
