@@ -105,12 +105,12 @@ class HBNBCommand(cmd.Cmd):
         """
         print the string representation of the classed passed as the arg
         """
-        my_classes = {"BaseModel": BaseModel}
+
         if len(arg) == 0:
             print([str(a) for a in storage.all().values()])
         elif len(arg) != 0:
             token = arg.split()
-            if token[0] not in my_classes:
+            if token[0] not in self.my_classes:
                 print("**class doesn't exist **")
                 return
             dictionaries = storage.all()
