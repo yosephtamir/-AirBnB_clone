@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Base class where other class inherit from
+Base class of the project
 """
 
 from uuid import uuid4
