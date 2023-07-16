@@ -69,8 +69,8 @@ class Testplace(unittest.TestCase):
         self.assertEqual(type(my_place.description), str)
         self.assertEqual(type(my_place.number_rooms), int)
         self.assertEqual(type(my_place.number_bathrooms), int)
-        self.assertEqual(type(my_place.latitude), int)
-        self.assertEqual(type(my_place.longitude), int)
+        self.assertEqual(type(my_place.latitude), float)
+        self.assertEqual(type(my_place.longitude), float)
         self.assertEqual(type(my_place.amenity_ids), list)
 
 

@@ -18,12 +18,12 @@ class TestReview(unittest.TestCase):
     def test_attr_of_class(self):
         """test class attributes assignment"""
         my_review = Review()
-        my_review.place_id = "review"
+        my_review.place_id = "B01"
         my_review.user_id = "123"
         my_review.text = "I love this"
         my_review.save()
-        self.assertEqual(my_review.name, "review")
-        self.assertEqual(my_review.place_id, "123")
+        self.assertEqual(my_review.place_id, "B01")
+        self.assertEqual(my_review.user_id, "123")
         self.assertEqual(my_review.text, "I love this")
 
     def test_obj_creation_date(self):
@@ -43,7 +43,7 @@ class TestReview(unittest.TestCase):
     def test_type_of_data(self):
         """test the type of data passed """
         my_review = Review()
-        self.assertEqual(type(my_review.name), str)
+        self.assertEqual(type(my_review.place_id), str)
         self.assertEqual(type(my_review.user_id), str)
         self.assertEqual(type(my_review.text), str)
 
