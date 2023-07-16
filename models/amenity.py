@@ -7,7 +7,7 @@ from models import BaseModel
 
 class Amenity(BaseModel):
     """
-    Amenity class
+    Amenity class that inherits from BaseModel
     """
     name = ""
 
