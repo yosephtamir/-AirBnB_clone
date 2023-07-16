@@ -11,7 +11,8 @@ class HBNBCommand(cmd.Cmd):
     """
     This is the command interpreter class
     """
-
+    
+    my_classes = {"BaseModel": BaseModel}
     prompt = '(hbnb)'
 
     def do_EOF(self, line):
@@ -118,6 +119,42 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
             return
+
+    def do_update(self, arg):
+        """
+        update instance's attributes through
+        command line arguments
+        """
+
+        token = arg.split()
+        if len(arg) == 0:
+            print("** class name missing **")
+            return
+        elif token[0] not in self.my_classes:
+            print("** class doesn't exist **")
+            return
+        elif len(arg) == 1:
+            print("** instance id missing **")
+            return
+        else:
+            cls_obj = storage.all()
+            key = token[0] + "." + token[1]                     
+            if key not in cls_obj:
+                print("** no instance found **")
+                return
+            else:
+                if len(arg) == 2:
+                    print("** attribute name missing **")
+                    return
+                elif len(arg) == 3:
+                    print("** value missing **")
+                    return
+                else:
+                    can_not_upd = ["id", "created_at", "updated_at"]
+                    if token[3] not in can_not_upd:
+                        my_dict_obj = storage.all()
+                        setattr(my_dict_obj[key], token[2], token[3])
+                        my_dict_obj[key].save()
 
 
 if __name__ == '__main__':
