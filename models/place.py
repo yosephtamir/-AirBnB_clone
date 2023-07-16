@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This is the place module
+This is the place module.
 """
 from models import BaseModel
 
